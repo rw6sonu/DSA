@@ -1,10 +1,10 @@
-// CRUD OPration
+// CRUD OPERATION
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int i, element, size, position, choice, count = 1;
+    int i, element, size, position, choice, count = 0;
 
     cout << "enter the size of array:- ";
     cin >> size;
@@ -36,7 +36,7 @@ int main()
                 cout << "enter the element:- ";
                 cin >> element;
 
-                cout << "enter the Position";
+                cout << "enter the Position:-";
                 cin >> position;
 
                 if (position < 0 || position > count)
@@ -62,21 +62,32 @@ int main()
             cout << "enter the element:- ";
             cin >> element;
 
-            cout << "enter the Position";
+            cout << "enter the Position:-";
             cin >> position;
+
+            arr[position] = element;
+            cout << "Element updated Successfully" << endl;
+            for (i = 0; i < size; i++)
+            {
+                cout << arr[i] << " ";
+            }
 
             break;
 
         case 3:
-            cout << "enter the element:- ";
-            cin >> element;
-            cout << "enter the Position";
+            cout << "enter the Position:-";
             cin >> position;
-
+          
+            for (i = position-1; i < size; i++)
+            {
+                arr[i] = arr[i+1];
+            }
+            count--;
+            cout << "Element Deleted Successfully" << endl;
             break;
 
         case 4:
-            cout<<"your array is:- ";
+            cout << "your array is:- ";
             for (i = 0; i < count; i++)
             {
                 cout << arr[i] << " ";
@@ -84,7 +95,6 @@ int main()
             cout << endl;
             break;
         }
-       
 
     } while (choice != 0);
 }
